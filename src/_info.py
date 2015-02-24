@@ -11,6 +11,7 @@ import qtify_maya_window as qtfy
 import pymel.core as pc
 from collections import OrderedDict
 import imaya
+import appUsageApp
 
 rootPath = osp.dirname(osp.dirname(__file__))
 uiPath = osp.join(rootPath, 'ui')
@@ -23,6 +24,8 @@ class Info(Form, Base):
         self.setupUi(self)
         
         self.displayInfo()
+        
+        appUsageApp.updateDatabase('RenderLayerInfo')
         
     def getRenderLayerInfo(self, renderLayer):
 
