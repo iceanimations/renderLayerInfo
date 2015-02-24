@@ -273,7 +273,7 @@
             </property>
             <item>
              <property name="text">
-              <string>--Passes--</string>
+              <string>--Enabled Passes--</string>
              </property>
             </item>
            </widget>

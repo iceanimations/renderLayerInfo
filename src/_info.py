@@ -34,8 +34,9 @@ class Info(Form, Base):
             pc.editRenderLayerGlobals(crl=renderLayer)
     
         info = OrderedDict()
-        info['cameras'] = [str(cam) for cam in imaya.getCameras(True, False)]
-        info['range']   = str(imaya.getFrameRange())
+        info['cameras'] = [str(cam.firstParent()) for cam in imaya.getCameras(True, False)]
+        val = 'Enabled' if pc.getAttr('defaultRenderGlobals.animation') else 'Disabled'
+        info['range']   = str(imaya.getFrameRange()) + ' - Animation: %s'%val
         info['passes']  = [str(aov)
                 for aov in pc.ls(type='RedshiftAOV')
                 if aov.enabled.get()]
