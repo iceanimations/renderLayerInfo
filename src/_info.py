@@ -4,7 +4,7 @@ Created on Feb 23, 2015
 @author: qurban.ali
 '''
 from uiContainer import uic
-from PyQt4.QtGui import QAbstractItemView
+from PyQt4.QtGui import QCursor
 from PyQt4.QtCore import Qt
 import os.path as osp
 import qtify_maya_window as qtfy
@@ -76,6 +76,7 @@ class Item(Form1, Base1):
         self.collapse()
         self.iconLabel.setStyleSheet(self.style%osp.join(iconPath, 'ic_expand.png').replace('\\', '/'))
         self.titleFrame.mouseReleaseEvent = self.collapse
+        self.titleFrame.setCursor(QCursor(Qt.PointingHandCursor))
 
     def collapse(self, event=None):
         if self.collapsed:
